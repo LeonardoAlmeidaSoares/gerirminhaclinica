@@ -36,16 +36,30 @@
 					</header>
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-sm-12 col-lg-9">
+							<div class="col-sm-12 col-lg-12">
 								<div class="form-group">
 									<label class="control-label">Nome do Plano</label>
 									<input type="text" id="txtNome" name="txtNome" class="form-control">
 								</div>
 							</div>
-							<div class="col-sm-3">
+							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Valor do Plano</label>
 									<input type="text" id="txtValor" name="txtValor" class="form-control">
+								</div>
+							</div>
+
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label class="control-label">Dependentes</label>
+									<input type="int" id="txtNumDependentes" name="txtNumDependentes" class="form-control">
+								</div>
+							</div>
+
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label class="control-label">Valor Adicional por Dependente</label>
+									<input type="text" id="txtValorDependente" name="txtValorDependente" class="form-control">
 								</div>
 							</div>
 

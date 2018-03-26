@@ -189,44 +189,6 @@
 
 						<hr />
 
-						<div class="row">
-							<div class="col-sm-4">
-								<div class="form-group">
-									<label class="control-label">Planos Selecionado</label>
-									<select id="txtPlano" name="txtPlano" class="form-control">
-										<option value="0" selected hidden>SELECIONE O PLANO</option>
-										<?php foreach($planos->result() as $item){?>
-											<option value="<?= $item->codPlano;?>"><?= $item->descricao;?></option>
-										<?php } ?>
-									</select>
-								</div>
-							</div>
-							<div class="col-sm-4">
-								<div class="form-group">
-									<label class="control-label">Data de Inicio</label>
-									<input type="text" id="txtDataInicio" value="14/03/2018" name="txtDataInicio" class="form-control">
-								</div>
-							</div>
-							<div class="col-sm-4">
-								<div class="form-group">
-									<label class="control-label">Data de Fim</label>
-									<input type="text" id="txtDataFim" name="txtDataFim" value='14/03/2019' class="form-control">
-								</div>
-							</div>
-						</div>
-
-						<div class="row">
-
-							<div class="col-sm-12">
-								<div class="form-group">
-									<label class="control-label">Observações</label>
-									<textarea id="txtObs" name="txtObs">Teste</textarea>
-								</div>
-							</div>
-
-						</div>
-
-						<br />
 					
 						<div class="row">
 							<div class="col-xs-12">
@@ -244,8 +206,9 @@
 </body>
 <script src="<?= base_url("assets/vendor/mask-plugin/dist/jquery.mask.min.js");?>"></script>
 <script src="<?= base_url("assets/vendor/ckeditor/ckeditor.js");?>"></script>
-<link rel="stylesheet" href="<?= base_url("assets/vendor/bootstrap-datepicker/css/datepicker3.css");?>" />
 <script src="<?= base_url("assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js");?>"></script>
 <script src="<?= base_url("assets/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.pt-BR.js");?>"></script>
+
+<link rel="stylesheet" href="<?= base_url("assets/vendor/bootstrap-datepicker/css/datepicker3.css");?>" />
 
 <script src="<?= base_url("assets/paginas/cadastro_cliente.js");?>"></script>

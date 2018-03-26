@@ -12,4 +12,8 @@ if (!defined('BASEPATH'))
         	return date_diff(date_create($data), date_create('today'))->y;
         }
 
+        public function converterDataParaPtBr($data){
+        	return date('d/m/Y H:i', strtotime(str_replace('-', '/', $data)));
+        }
+
     }

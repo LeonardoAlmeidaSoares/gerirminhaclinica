@@ -41,7 +41,7 @@ class Especializacao extends CI_Controller {
 
 		$parametros = array(
 			"nome" => trim(filter_input(INPUT_POST, "txtNome")),
-			"descricao" => trim(filter_input(INPUT_POST, "txtValor")),
+			"descricao" => trim(filter_input(INPUT_POST, "txtDescricao")),
 			"codEmpresa" => $_SESSION["corporate"]->codEmpresa
 		);
 

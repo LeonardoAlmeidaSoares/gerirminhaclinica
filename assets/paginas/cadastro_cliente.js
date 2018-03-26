@@ -9,16 +9,6 @@ $(function(){
 	$('#txtTelefone').mask('(00) 0000-0000');
 	$('#txtCelular').mask('(00) 0 0000-0000');
 
-	//Aplico o CKEditor ao campo Observação
-	CKEDITOR.replace("txtObs");
-
-	//Crio os campos datepicker
-	$('#txtDataInicio').datepicker();
-	$('#txtDataFim').datepicker({
-		format: 'dd/mm/yyyy',
-		language: "pt-BR"
-	});
-
 	/*Ativo o evento para a selecção de Estado e cidades*/
 	$("#txtEstado").on("change", function(){
 

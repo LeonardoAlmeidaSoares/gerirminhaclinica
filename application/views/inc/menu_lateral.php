@@ -29,16 +29,39 @@
 								<span>Cliente</span>
 							</a>
 						</li>
+
+						<li>
+							<a href="<?= base_url("index.php/colaborador");?>">
+								<i class="fa fa-life-bouy" aria-hidden="true"></i>
+								<span>Colaboradores</span>
+							</a>
+						</li>
+
+						<li>
+							<a href="<?= base_url("index.php/funcionario");?>">
+								<i class="fa fa-life-bouy" aria-hidden="true"></i>
+								<span>Funcionários</span>
+							</a>
+						</li>
+
 						<li>
 							<a href="<?= base_url("index.php/plano");?>">
-								<i class="fa fa-tags" aria-hidden="true"></i>
+								<i class="fa fa-database" aria-hidden="true"></i>
 								<span>Planos</span>
 							</a>
 						</li>
+
+						<li>
+							<a href="<?= base_url("index.php/procedimento");?>">
+								<i class="fa fa-database" aria-hidden="true"></i>
+								<span>Procedimentos</span>
+							</a>
+						</li>
+
 						<li>
 							<a href="<?= base_url("index.php/especializacao");?>">
 								<i class="fa fa-tags" aria-hidden="true"></i>
-								<span>Especilização</span>
+								<span>Especialização</span>
 							</a>
 						</li>
 					</ul>

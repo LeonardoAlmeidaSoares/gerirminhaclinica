@@ -51,4 +51,13 @@
 		<!-- Examples -->
 		<script src="<?= base_url("assets/javascripts/main.js"); ?>"></script>
 	</body>
+
+	<?php if(isset($_SESSION["msg_ok"])){ ?>
+		<script>swal('Bom trabalho','<?= $_SESSION["msg_ok"];?>','success')</script>
+		<?php $_SESSION["msg_ok"] = NULL; ?>
+	<?php }	?>
+	<?php if(isset($_SESSION["msg_error"])){ ?>
+		<script>swal('Good job!','<?= $_SESSION["msg_error"];?>','error')</script>
+		<?php $_SESSION["msg_error"] = NULL; ?>
+	<?php }	?>
 </html>

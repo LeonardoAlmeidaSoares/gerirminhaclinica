@@ -41,4 +41,6 @@
 		<!-- Head Libs -->
 		<script src="<?= base_url("assets/vendor/modernizr/modernizr.js"); ?>"></script>
 
+		<script type="text/javascript" src="//cdn.rawgit.com/icons8/bower-webicon/v0.10.7/jquery-webicon.min.js"></script>
+
 	</head>

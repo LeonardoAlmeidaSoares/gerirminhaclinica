@@ -42,6 +42,8 @@ class Plano extends CI_Controller {
 		$parametros = array(
 			"descricao" => trim(filter_input(INPUT_POST, "txtNome")),
 			"valor" => doubleval(trim(str_replace(",",".",filter_input(INPUT_POST, "txtValor")))),
+			"numeroDependentes" => intval(trim(filter_input(INPUT_POST, "txtNumDependentes"))),
+			"valorDependente" => intval(trim(filter_input(INPUT_POST, "txtValorDependente"))),
 			"status" => STATUS_PLANO_INCOMPLETO,
 			"codEmpresa" => $_SESSION["corporate"]->codEmpresa
 		);

@@ -47,7 +47,11 @@
 						<td><?= $item->celular;?></td>
 						<td><?= $item->descricaoPlano;?></td>
 						<td class="center hidden-phone"><?= $this->uteis->getIdade($item->nascimento);?></td>
-						<td class="center hidden-phone"></td>
+						<td class="center hidden-phone">
+							<a class="icon_action" href="<?= base_url("index.php/contrato/contrato/$item->codCliente/");?>" 	title="Visualizar/Criar Contrato">
+								<webicon icon="linecons:note"/>
+							</a>
+						</td>
 					</tr>
 					<?php } ?>
 				</tbody>

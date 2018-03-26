@@ -69,45 +69,17 @@ class Cliente extends CI_Controller {
 			"rg" => trim(filter_input(INPUT_POST, "txtIdentidade")),
 			"profissao" => trim(filter_input(INPUT_POST, "txtProfissao")),
 			"nacionalidade" => trim(filter_input(INPUT_POST, "txtNacionalidade")),
-			"nascimento" => trim(filter_input(INPUT_POST, "txtNascimento")),
 			"nome_pai" => trim(filter_input(INPUT_POST, "txtPai")),
 			"nome_mae" => trim(filter_input(INPUT_POST, "txtMae")),
 			"escolaridade" => trim(filter_input(INPUT_POST, "txtEscolaridade")),
-			"codEmpresa" => intval($_SESSION["corporate"]->codEmpresa)
+			"codEmpresa" => intval($_SESSION["corporate"]->codEmpresa),
+			"codCidade" => intval(trim(filter_input(INPUT_POST, "txtCidade")))
 		);
 
 		$codCliente = $this->cliente->inserir($parametrosCliente);
 
-		//Cadastro do Contrato
-
-		$parametrosContrato = array(
-			"codCliente" => $codCliente,
-			"codPlano" => intval(trim(filter_input(INPUT_POST, "txtPlano"))),
-			"dataFinal" => $this->uteis->converterDataParaMysql(trim(filter_input(INPUT_POST, "txtDataFim"))),
-			"dataInicio" => $this->uteis->converterDataParaMysql(trim(filter_input(INPUT_POST, "txtDataInicio"))),
-			"status" => STATUS_CLIENTE_ATIVO,
-			"obs" => trim(filter_input(INPUT_POST, "txtObs")),
-			"codUsuario" => intval(trim($_SESSION["user"]->codUsuario)),
-			"codEmpresa" => intval($_SESSION["corporate"]->codEmpresa)
-		);
-
-		//Insiro o contrato
-		$codContrato = $this->contrato->inserir($parametrosContrato);
-		$dadosPlano = $this->planos->getPlano($parametrosContrato["codPlano"]);
-		/*
-		$parametrosContaReceber = array(
-			"descricao" => "Cadastro de Contrato",
-			"observação" => "Conta gerada automaticamente pela aquisição do cliente ao plano " . $dadosPlano->row(0)->descricao,
-			"dataVencimento" => "",
-			"codTipoContaReceber" => 0,
-			"codCliente" => $codCliente,
-			"valor" => $dadosPlano->row(0)->valor,
-			""
-		);
-		*/
-		//$parametrosContaReceber["dataVencimento"] = strtotime('+1 days', strtotime();
 		$_SESSION["msg_ok"] = "Cadastro Realizado com Sucesso";
-		redirect(base_url("index.php/cliente/"));
+		redirect(base_url("index.php/contrato/contrato/$codCliente"));
 
 	}
 }
