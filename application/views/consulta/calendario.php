@@ -1,3 +1,21 @@
+				<?php 
+					function getStatus($codStatus){
+
+						$ret = "";
+
+						switch($codStatus){
+							case STATUS_CONSULTA_CANCELADA:
+								$ret = "CANCELADA"; break;
+							case STATUS_CONSULTA_ATIVA:
+								$ret = "MARCADA"; break;
+							case STATUS_CONSULTA_EM_ANDAMENTO:
+								$ret = "EM ANDAMENTO"; break;
+							case STATUS_CONSULTA_FINALIZADA:
+								$ret = "FINALIZADA"; break;
+						}
+
+					}
+				?>
 
 				<section role="main" class="content-body">
 					<header class="page-header">
@@ -31,15 +49,14 @@
 									<hr />
 
 									<div id='external-events'>
+
 										<?php foreach($colaboradores->result() as $item){ ?>
-											<div class="col-xs-6">
-												<div class="external-event label label-default" style="width:96%; cursor: pointer;">
-												<center>
-													<a class="novoCadastro" href="#" cod="<?= $item->codColaborador;?>"><?= $item->nome;?></a>
-												</center>
+											<div class="col-xs-12 col-lg-4">
+												<a style="text-decoration: none;" href="#" 
+													cod="<?= $item->codColaborador;?>" class="novoCadastro external-event label label-default" style="width:100%; cursor: pointer;">
+														<?= $item->nome;?>
+												</a>
 											</div>
-											</div>
-											
 											
 										<?php } ?>
 
@@ -64,9 +81,7 @@
 											<th>Status</th>
 										</tr>
 									</thead>
-									<tbody>
-										
-									</tbody>
+									<tbody></tbody>
 								</table>
 
 								<br><br>

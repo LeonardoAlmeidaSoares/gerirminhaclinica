@@ -12643,7 +12643,8 @@ html.dark .table .actions-hover a {
 }
 
 .dataTables_wrapper .dataTables_filter input {
-	width: 100%;
+	width: 350%;
+	margin-left: -250%;
 }
 
 @media only screen and (max-width: 991px) {

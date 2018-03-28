@@ -52,20 +52,23 @@ class Consulta extends CI_Controller {
 	public function add() {
 
 		$parametros = array(
-			"descricao" => trim(filter_input(INPUT_POST, "txtNome")),
+			"data" => trim(filter_input(INPUT_POST, "txtHorario")),
+			"codColaborador" => intval(trim(filter_input(INPUT_POST, "txtColaborador"))),
+			"codDependente" => intval(trim(filter_input(INPUT_POST, "txtDependente"))),
+			//"codPlano" => "",
+			"codUsuario" => intval(trim($_SESSION["user"]->codUsuario)),
+			"codProcedimento" => intval(trim(filter_input(INPUT_POST, "txtProcedimento"))),
+			"codEmpresa" => $_SESSION["corporate"]->codEmpresa,
 			"valor" => doubleval(trim(str_replace(",",".",filter_input(INPUT_POST, "txtValor")))),
-			"numeroDependentes" => intval(trim(filter_input(INPUT_POST, "txtNumDependentes"))),
-			"valorDependente" => intval(trim(filter_input(INPUT_POST, "txtValorDependente"))),
-			"status" => STATUS_PLANO_INCOMPLETO,
-			"codEmpresa" => $_SESSION["corporate"]->codEmpresa
+			"status" => STATUS_CONSULTA_ATIVA
 		);
 
-		if($this->planos->inserir($parametros)){
-			$_SESSION["msg_ok"] = "Plano Cadastrado com Sucesso";
-			redirect(base_url("index.php/plano"));
+		if($this->consultas->inserir($parametros)){
+			$_SESSION["msg_ok"] = "Consulta Cadastrada com Sucesso";
+			redirect(base_url("index.php/consulta"));
 		}else{
-			$_SESSION["msg_error"] = "Houve um erro no cadastro do Plano";
-			redirect(base_url("index.php/plano"));
+			$_SESSION["msg_error"] = "Houve um erro no cadastro da Consulta";
+			redirect(base_url("index.php/consulta"));
 		}
 
 	}

@@ -109,7 +109,7 @@ function buscarConsultas($codDoutor, $data){
 					).append(
 						$("<td>").html($value.data)
 					).append(
-						$("<td>").html($value.codConsulta)
+						$("<td>").html($value.status)
 					)
 				);
 			});
