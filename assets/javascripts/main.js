@@ -1,3 +1,4 @@
+/*
 function buscarConsultas($codDoutor, $data){
 	$.ajax({
         url: "../ajax/getListaCompromissos",
@@ -28,13 +29,13 @@ function buscarConsultas($codDoutor, $data){
 
     });
 }
-
+*/
 $(function(){
 
 	var codDoutor = 0;
 	var data = "2018-03-24";
 
-	//$(".sidebar-right-toggle").hide();
+	$(".sidebar-right-toggle").hide();
 	$(".page-header .right-wrapper").css("margin-right", "15px");
 
 	$("#datatable").DataTable();

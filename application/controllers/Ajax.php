@@ -46,4 +46,5 @@ class Ajax extends CI_Controller {
 		echo json_encode($dump);
 
 	}
+
 }
