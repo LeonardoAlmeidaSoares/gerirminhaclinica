@@ -40,20 +40,20 @@
 							<div class="col-sm-12 col-lg-6">
 								<div class="form-group">
 									<label class="control-label">Nome do Cliente</label>
-									<input type="text" id="txtNome" name="txtNome" value="Leonardo Almeida Soares" class="form-control">
+									<input type="text" id="txtNome" name="txtNome" class="form-control">
 								</div>
 							</div>
 							<div class="col-sm-3">
 								<div class="form-group">
 									<label class="control-label">CPF</label>
-									<input type="text" id="txtCpf" name="txtCpf" value="079,141,256-36" class="form-control">
+									<input type="text" id="txtCpf" name="txtCpf" class="form-control">
 								</div>
 							</div>
 
 							<div class="col-sm-3">
 								<div class="form-group">
 									<label class="control-label">Identidade</label>
-									<input type="text" id="txtIdentidade" value="MG-16.861.616" name="txtIdentidade" class="form-control">
+									<input type="text" id="txtIdentidade" name="txtIdentidade" class="form-control">
 								</div>
 							</div>
 
@@ -71,7 +71,7 @@
 							<div class="col-sm-3">
 								<div class="form-group">
 									<label class="control-label">Data de Nascimento</label>
-									<input type="text" id="txtNascimento" value="23041989" name="txtNascimento" class="form-control">
+									<input type="text" id="txtNascimento" name="txtNascimento" class="form-control">
 								</div>
 							</div>
 
@@ -79,7 +79,7 @@
 							<div class="col-sm-3">
 								<div class="form-group">
 									<label class="control-label">Profissão</label>
-									<input type="text" id="txtProfissao" value="Programador" name="txtProfissao" class="form-control">
+									<input type="text" id="txtProfissao" name="txtProfissao" class="form-control">
 								</div>
 							</div>
 
@@ -88,21 +88,21 @@
 							<div class="col-sm-3">
 								<div class="form-group">
 									<label class="control-label">Escolaridade</label>
-									<input type="text" id="txtEscolaridade" value="Superior Completo" name="txtEscolaridade" class="form-control">
+									<input type="text" id="txtEscolaridade" name="txtEscolaridade" class="form-control">
 								</div>
 							</div>
 
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label class="control-label">Nome do Pai</label>
-									<input type="text" id="txtPai" name="txtPai" value="Florderalde Pereira Soares" class="form-control">
+									<input type="text" id="txtPai" name="txtPai"  class="form-control">
 								</div>
 							</div>
 
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label class="control-label">Nome da Mãe</label>
-									<input type="text" id="txtMae" name="txtMae" value="Laurentina de Almeida Soares" class="form-control">
+									<input type="text" id="txtMae" name="txtMae" class="form-control">
 								</div>
 							</div>
 
@@ -135,26 +135,26 @@
 							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">CEP</label>
-									<input type="text" id="txtCep" value="36880000" name="txtCep" class="form-control">
+									<input type="text" id="txtCep" name="txtCep" class="form-control">
 								</div>
 							</div>
 							<div class="col-sm-8">
 								<div class="form-group">
 									<label class="control-label">logradouro</label>
-									<input type="text" id="txtEndereco" value="Rua dos Democratas" name="txtLogradouro" class="form-control">
+									<input type="text" id="txtEndereco" name="txtLogradouro" class="form-control">
 								</div>
 							</div>
 							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Bairro</label>
-									<input type="text" id="txtBairro" value="São Pedro" name="txtBairro" class="form-control">
+									<input type="text" id="txtBairro" name="txtBairro" class="form-control">
 								</div>
 							</div>
 
 							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Número</label>
-									<input type="text" id="txtNumero" value="44" name="txtNumero" class="form-control">
+									<input type="text" id="txtNumero" name="txtNumero" class="form-control">
 								</div>
 							</div>
 
@@ -176,13 +176,13 @@
 							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Celular</label>
-									<input type="text" id="txtCelular" value="32991194038" name="txtCelular" class="form-control">
+									<input type="text" id="txtCelular" name="txtCelular" class="form-control">
 								</div>
 							</div>
 							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Email</label>
-									<input type="email" id="txtEmail" value="leonardo@megaacesso.com.br" name="txtEmail" class="form-control">
+									<input type="email" id="txtEmail" name="txtEmail" class="form-control">
 								</div>
 							</div>
 						</div>

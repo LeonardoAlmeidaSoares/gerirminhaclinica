@@ -38,12 +38,30 @@ class Ajax extends CI_Controller {
 
 		$dump = $dump->result_array();
 
-		for($i = 0; $i <count($dump); $i++){
+		for($i = 0; $i < count($dump); $i++){
 			$dump[$i]["data"] = $this->uteis->converterDataParaPtBr($dump[$i]["data"]);
 		
 		}
 
 		echo json_encode($dump);
+
+	}
+
+	public function getValorProcedimento(){
+
+		$codDependente = intval(trim(filter_input(INPUT_POST, 'codDependente')));
+		$codProcedimento = intval(trim(filter_input(INPUT_POST, "codProcedimento")));
+
+		$retorno = $this->db->select("pp.*")
+					->from("procedimento_plano pp")
+					->join("plano p", "p.codPlano = pp.codPlano")
+					->join("contrato c", "c.codplano = p.codPlano")
+					->join("dependente d", "d.codContrato = c.codContrato")
+					->where("pp.codProcedimento", $codProcedimento)
+					->where("d.codDependente", $codDependente)
+					->get();
+
+		echo json_encode($retorno->Result_array());
 
 	}
 

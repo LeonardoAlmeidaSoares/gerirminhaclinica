@@ -89,12 +89,20 @@
 								</div>
 							</div>
 
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label class="control-label">Valor Total</label>
+									<input type="text" id="txtValor" name="txtValor" readonly class="form-control">
+								</div>
+							</div>
+
 						</div>
 
 						<br />
 					
 						<div class="row">
 							<div class="col-xs-12">
+								<input type="hidden" name="txtPlano" id="txtPlano">
 								<input type="submit" class="btn btn-success pull-right" value="Cadastrar" />
 							</div>
 						</div>

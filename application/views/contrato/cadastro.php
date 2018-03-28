@@ -64,14 +64,14 @@
 							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Data de Inicio</label>
-									<input type="text" id="txtDataInicio" value="14/03/2018" name="txtDataInicio" class="form-control">
+									<input type="text" id="txtDataInicio" name="txtDataInicio" class="form-control">
 								</div>
 							</div>
 							
 							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Data de Fim</label>
-									<input type="text" id="txtDataFim" name="txtDataFim" value='14/03/2019' class="form-control">
+									<input type="text" id="txtDataFim" name="txtDataFim" class="form-control">
 								</div>
 							</div>
 
@@ -83,7 +83,7 @@
 							<h3>
 								Dependentes
 								<a href="#" id="btnAddDependent" class="btn btn-info pull-right">
-										<span class="fa fa-plus"></span>
+									<span class="fa fa-plus"></span>
 								</a>
 							</h3>
 							

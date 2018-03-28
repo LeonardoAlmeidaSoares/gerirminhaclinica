@@ -64,6 +64,13 @@
 								<span>Especialização</span>
 							</a>
 						</li>
+
+						<li>
+							<a href="<?= base_url("index.php/consulta");?>">
+								<i class="fa fa-calendar" aria-hidden="true"></i>
+								<span>Agenda</span>
+							</a>
+						</li>
 					</ul>
 				</nav>
 			</div>

@@ -1,3 +1,17 @@
+var funcaoRemoveItens = function(){
+	$this = $(this); 
+	$this.parent().parent().parent().parent().prev().hide("slow");
+	$this.parent().parent().parent().parent().hide("slow");
+	/*
+	numDependentes = numDependentes - 1;
+
+	if(numDependentes > 0){
+		valorTotal += (numDependentes - numDependentesPossiveisSemCobranca) * valorDependenteExtra;
+	}
+	
+	*/
+}
+
 $(function(){
 
 	var numDependentes = 0;
@@ -98,7 +112,14 @@ $(function(){
 							$("<input>").addClass("form-control").attr("type","text").attr("id","txtNascimentoDependente_" + numDependentes).attr("name","txtNascimentoDependente_" + numDependentes)
 						)		
 					)
+				).append(
+					$("<div>").addClass("col-sm-12").append(
+						$("<div>").addClass("form-group").append(
+							$("<a>").addClass("btn btn-warning remove").on("click", funcaoRemoveItens).html("REMOVER")
+						)
+					)
 				)
+
 			)
 		);
 
@@ -110,6 +131,7 @@ $(function(){
 		});
 
 	});
+
 
 	$("#txtPlano").on("change", function(){
 		
