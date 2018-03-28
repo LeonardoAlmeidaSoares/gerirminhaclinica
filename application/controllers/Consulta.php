@@ -40,7 +40,7 @@ class Consulta extends CI_Controller {
 			"dependentes" => $this->clientes->getDependentes($_SESSION["corporate"]->codEmpresa),
 			"procedimentos" => $this->procedimentos->getProcedimentosDetalhados($_SESSION["corporate"]->codEmpresa)
 		);
-
+		
 		$this->load->view('inc/header');
 		$this->load->view('inc/barra_superior');
 		$this->load->view('inc/menu_lateral');
