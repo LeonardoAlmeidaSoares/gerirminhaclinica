@@ -1536,10 +1536,11 @@ html.header-dark .header .input-search .input-group-btn .btn-default {
 }
 
 .sidebar-left .sidebar-header .sidebar-title {
-	color: #465162;
+	color: #FFF;
 	padding: 15px;
 	font-size: 15px;
 	font-size: 1.5rem;
+	text-transform: uppercase;
 }
 
 .sidebar-left .sidebar-header .sidebar-toggle {

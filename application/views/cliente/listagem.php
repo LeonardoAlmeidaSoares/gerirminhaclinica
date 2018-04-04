@@ -49,8 +49,11 @@
 						<td class="center hidden-phone"><?= $this->uteis->getIdade($item->nascimento);?></td>
 						<td class="center hidden-phone">
 							<a class="icon_action" href="<?= base_url("index.php/contrato/contrato/$item->codCliente/");?>" 	title="Visualizar/Criar Contrato">
-								<webicon icon="linecons:note"/>
+								<span class="fa fa-fax fa-2x"></span>
 							</a>
+							<a class="icon_action" href="<?= base_url("index.php/cliente/edit/$item->codCliente/");?>" 	title="Alterar Dados do Cliente">
+									<span class="fa fa-edit fa-2x"></span>
+								</a>
 						</td>
 					</tr>
 					<?php } ?>
@@ -59,7 +62,7 @@
 
 			<div class="pull-right">
 				<a href="<?= base_url("index.php/cliente/novo");?>">
-					<button type="button" class="mb-xs mt-xs mr-xs btn btn-success">
+					<button type="button" class="mb-xs mt-xs mr-xs btn btn-primary">
 						<span class="fa fa-save"> &nbsp;NOVO
 					</button>
 				</a>

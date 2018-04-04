@@ -29,6 +29,24 @@ class Consulta extends CI_Controller {
 
 	}
 
+	public function hoje() {
+
+		//$this->load->Model("Model_colaboradores", "colaboradores");
+
+		$parametros = array(
+			"listagem" => $this->consultas->getConsultas($_SESSION["corporate"]->codEmpresa,0,date("Y-m-d"))
+			//"colaboradores" => $this->colaboradores->getColaboradores($_SESSION["corporate"]->codEmpresa)
+		);
+
+		$this->load->view('inc/header');
+		$this->load->view('inc/barra_superior');
+		$this->load->view('inc/menu_lateral');
+		$this->load->view('consulta/listagem_hoje', $parametros);
+		//$this->load->view('inc/barra_lateral');
+		$this->load->view('inc/rodape');
+
+	}
+
 	public function novo() {
 
 		$this->load->Model("Model_colaboradores", "colaboradores");
@@ -52,16 +70,20 @@ class Consulta extends CI_Controller {
 	public function add() {
 
 		$parametros = array(
-			"data" => trim(filter_input(INPUT_POST, "txtHorario")),
+			"data" => $this->uteis->converterTimestampParaMysql(trim(filter_input(INPUT_POST, "txtHorario"))),
 			"codColaborador" => intval(trim(filter_input(INPUT_POST, "txtColaborador"))),
 			"codDependente" => intval(trim(filter_input(INPUT_POST, "txtDependente"))),
-			//"codPlano" => "",
 			"codUsuario" => intval(trim($_SESSION["user"]->codUsuario)),
 			"codProcedimento" => intval(trim(filter_input(INPUT_POST, "txtProcedimento"))),
 			"codEmpresa" => $_SESSION["corporate"]->codEmpresa,
 			"valor" => doubleval(trim(str_replace(",",".",filter_input(INPUT_POST, "txtValor")))),
 			"status" => STATUS_CONSULTA_ATIVA
 		);
+
+
+		$codPlano = $this->db->query("select c.codPlano from dependente d join contrato c on c.codContrato = d.codContrato where d.codDependente = ?", array($parametros["codDependente"]));
+
+		$parametros["codPlano"] = $codPlano->row(0)->codPlano;
 
 		if($this->consultas->inserir($parametros)){
 			$_SESSION["msg_ok"] = "Consulta Cadastrada com Sucesso";
@@ -70,6 +92,6 @@ class Consulta extends CI_Controller {
 			$_SESSION["msg_error"] = "Houve um erro no cadastro da Consulta";
 			redirect(base_url("index.php/consulta"));
 		}
-
+		
 	}
 }

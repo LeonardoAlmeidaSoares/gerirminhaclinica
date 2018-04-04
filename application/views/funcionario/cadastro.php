@@ -45,7 +45,7 @@
 							<div class="col-sm-3">
 								<div class="form-group">
 									<label class="control-label">Cargo do Funcionário</label>
-									<select id="txtCargo" name="txtCargo" class="form-control">
+									<select id="txtCargo" name="txtCargo" class="select form-control">
 										<option value="0" selected hidden>SELECIONE O CARGO</option>
 										<?php foreach($cargos->result() as $item){ ?>
 											<option value="<?= $item->codCargo;?>"><?= $item->descricao;?></option>
@@ -90,7 +90,7 @@
 							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Estado</label>
-									<select id="txtEstado" name="txtEstado" class="form-control">
+									<select id="txtEstado" name="txtEstado" class="select form-control">
 										<option value="-1" selected hidden>Selecione o Estado</option>
 										<?php foreach($estados->result() as $item){ ?>
 											<option value="<?= $item->codEstado;?>"><?= $item->nome;?></option>
@@ -102,7 +102,7 @@
 							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Cidade</label>
-									<select id="txtCidade" name="txtCidade" class="form-control">
+									<select id="txtCidade" name="txtCidade" class="select form-control">
 										<option value="-1" selected hidden>Selecione o Estado</option>
 									</select>
 								</div>
@@ -119,7 +119,7 @@
 
 						<div class="row">
 							<div class="col-xs-12">
-								<input type="submit" class="btn btn-success pull-right" value="Cadastrar" />
+								<input type="submit" class="btn btn-primary pull-right" value="CADASTRAR" />
 							</div>
 						</div>
 					

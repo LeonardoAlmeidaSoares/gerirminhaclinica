@@ -51,7 +51,7 @@
 									<div id='external-events'>
 
 										<?php foreach($colaboradores->result() as $item){ ?>
-											<div class="col-xs-12 col-lg-4">
+											<div class="col-xs-12 col-lg-6">
 												<a style="text-decoration: none;" href="#" 
 													cod="<?= $item->codColaborador;?>" class="novoCadastro external-event label label-default" style="width:100%; cursor: pointer;">
 														<?= $item->nome;?>
@@ -69,7 +69,11 @@
 					<section class="panel" id="div_lista_consultas">
 						<div class="panel-body">
 							<header class="panel-heading">
-								<h2 class="panel-title">Consultas Marcadas</h2>
+								<h2 class="panel-title">Consultas Marcadas
+								<a style="margin-top: -5px;" href="<?= base_url("index.php/consulta/novo");?>" class="btn btn-primary pull-right">
+									<span class="fa fa-plus"> ADICIONAR</span>
+								</a>
+								</h2>
 							</header>
 							<div class="panel-body">
 								<table id="tabela" class="table table-hover table-responsive mb-none">
@@ -86,9 +90,7 @@
 
 								<br><br>
 
-								<a href="<?= base_url("index.php/consulta/novo");?>" class="btn btn-success pull-right">
-									<span class="fa fa-plus"> ADICIONAR</span>
-								</a>
+								
 							</div>
 
 						</div>
@@ -99,8 +101,13 @@
 				</section>
 
 		<!-- Specific Page Vendor -->
+
+		<link rel="stylesheet" href="<?= base_url("assets/vendor/fullcalendar/fullcalendar.css");?>" />
+
 		<script src="<?= base_url("assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js");?>"></script>
 		<script src="<?= base_url("assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js");?>"></script>
 		<script src="<?= base_url("assets/vendor/fullcalendar/lib/moment.min.js");?>"></script>
 		<script src="<?= base_url("assets/vendor/fullcalendar/fullcalendar.js");?>"></script>
+		<script src='<?= base_url("assets/vendor/fullcalendar/lang/pt-br.js");?>'></script>
 		<script src="<?= base_url("assets/paginas/calendario.js");?>"></script>
+

@@ -1,5 +1,6 @@
 var codColaborador = 0;
 var data = 0;
+var $last = null;
 
 var initCalendar = function($calendar) {
 	var date = new Date();
@@ -27,13 +28,12 @@ var initCalendar = function($calendar) {
 		},
 
 		dayClick: function(date, jsEvent, view) {
+			if($last != null)
+				$last.css('background-color', '#FFF');
 
-		    //alert('Clicked on: ' + date.format());
-		    //alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-		    //alert('Current view: ' + view.name);
-		    // change the day's background color just for fun
-		    $(this).css('background-color', '#f3e5e5');
+		    $(this).css('background-color', '#c2cdfc');
 		    data = date.format();
+		    $last = $(this);
 		    buscarConsultas(codColaborador, data);
 		},
 
@@ -53,7 +53,6 @@ var initCalendar = function($calendar) {
 			copiedEventObject.className = $externalEvent.attr('data-event-class');
 
 			// render the event on the calendar
-			// the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
 			$('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
 
 			// is the "remove after drop" checkbox checked?
@@ -82,6 +81,25 @@ var initCalendar = function($calendar) {
 };
 
 
+var getStatus = function($codStatus){
+
+	$ret = "";
+
+	switch($codStatus){
+		case 1000:
+			$ret = "<span class='label label-danger'>CANCELADA</span>"; break;
+		case 1001:
+			$ret = "<span class='label label-success'>ATIVO</span>"; break;
+		case 1002:
+			$ret = "<span class='label label-warning'>EM ANDAMENTO</span>"; break;
+		case 1003:
+			$ret = "<span class='label label-primary'>FINALIZADO</span>"; break;
+	}
+	console.log($codStatus);
+	return $ret;
+
+}
+
 function buscarConsultas($codDoutor, $data){
 
 	if(($codDoutor > 0) && (data.length > 0)){
@@ -95,7 +113,6 @@ function buscarConsultas($codDoutor, $data){
 	        }
 	    }).success(function (response) {
 
-	    	console.log(JSON.parse(response));
 	    	$vet = JSON.parse(response);
 
 	    	$("#tabela tbody tr").remove();
@@ -103,18 +120,24 @@ function buscarConsultas($codDoutor, $data){
 	    	$.each($vet,function($index, $value){
 	    		$("#tabela tbody").append(
 	    			$("<tr>").append(
-						$("<td>").html($value.codConsulta)
+						$("<td>").html("0000".substring(0, 4 - $value.codConsulta.length) + $value.codConsulta)
 					).append(
 						$("<td>").html($value.paciente)
 					).append(
 						$("<td>").html($value.data)
 					).append(
-						$("<td>").html($value.status)
+						$("<td>").html(getStatus(parseInt($value.status)))
 					)
 				);
 			});
 
 			$("#div_lista_consultas").show('slow');
+			$('html,body').animate({
+        		scrollTop: $("#div_lista_consultas").offset().top},
+        		'slow');
+
+			//var objDiv = document.getElementById("div_lista_consultas");
+			//objDiv.scrollTop = objDiv.scrollHeight;
 			
 	    });
 	}

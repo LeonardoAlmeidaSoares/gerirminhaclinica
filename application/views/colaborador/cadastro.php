@@ -45,7 +45,7 @@
 							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Especialização</label>
-									<select id="txtEspecializacao" name="txtEspecializacao" class="form-control">
+									<select id="txtEspecializacao" name="txtEspecializacao" class="select form-control">
 										<option value="0" hidden selected>SELECIONE A ESPECIALIZAÇÃO</option>
 										<?php foreach($especializacoes->result() as $item){?>
 											<option value="<?= $item->codEspecializacao;?>"><?= $item->nome;?></option>
@@ -83,7 +83,7 @@
 							<div class="col-sm-12 col-lg-4">
 								<div class="form-group">
 									<label class="control-label">Forma de Pagamento</label>
-									<select id="txtFormaPagto" name="txtFormaPagto" class="form-control">
+									<select id="txtFormaPagto" name="txtFormaPagto" class="select form-control">
 										<option value='0' hidden selected>SELECIONE A FORMA DE PAGAMENTO</option>
 										<option value="<?= FORMA_PAGTO_CONSULTA;?>">Pagamento Por Consulta</option>
 										<option value="<?= FORMA_PAGTO_PLANTAO;?>">Pagamento Por Plantão</option>
@@ -110,7 +110,7 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="form-group">
-									<input type="submit" class="btn btn-success pull-right" value="Cadastrar" />
+									<input type="submit" class="btn btn-primary pull-right" value="CADASTRAR" />
 								</div>
 							</div>
 						</div>

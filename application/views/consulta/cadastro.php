@@ -39,7 +39,7 @@
 							<div class="col-sm-12 col-lg-6">
 								<div class="form-group">
 									<label class="control-label">Nome do Colaborador</label>
-									<select class="form-control" name="txtColaborador" id="txtColaborador">
+									<select class="select form-control" name="txtColaborador" id="txtColaborador">
 										<option value="0" selected hidden>SELECIONE O COLABORADOR</option>
 										<?php foreach ($colaboradores->result() as $item) { ?>
 											<option value="<?= $item->codColaborador;?>"><?= $item->nome;?></option>
@@ -50,7 +50,7 @@
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label class="control-label">Nome do Dependente</label>
-									<select class="form-control" name="txtDependente" id="txtDependente">
+									<select class="select form-control" name="txtDependente" id="txtDependente">
 										<option value="0" selected hidden>SELECIONE O DEPENDENTE</option>
 										<?php foreach ($dependentes->result() as $item) { ?>
 											<option value="<?= $item->codDependente;?>"><?= $item->nome;?></option>
@@ -62,14 +62,14 @@
 							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Horário</label>
-									<input type="text" id="txtHorario" name="txtHorario" class="form-control">
+										<input type="text" id="txtHorario" name="txtHorario" class="form-control">
 								</div>
 							</div>
 
 							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Procedimento</label>
-									<select id="txtProcedimento" name="txtProcedimento" class="form-control">
+									<select id="txtProcedimento" name="txtProcedimento" class="select form-control">
 										<option hidden selected value="0">SELECIONE O PROCEDIMENTO</option>
 										<?php $codLast = 0;
 
@@ -103,7 +103,7 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<input type="hidden" name="txtPlano" id="txtPlano">
-								<input type="submit" class="btn btn-success pull-right" value="Cadastrar" />
+								<input type="submit" class="btn btn-primary pull-right" value="CADASTRAR" />
 							</div>
 						</div>
 					
@@ -115,5 +115,8 @@
 		</div>
 	</div>
 </body>
+<link rel="stylesheet" type="text/css" href="<?= base_url("assets/vendor/datetimepicker/build/jquery.datetimepicker.min.css");?>">
+<script src="<?= base_url("assets/vendor/datetimepicker/build/jquery.datetimepicker.full.min.js");?>"></script>
+<!--script type="text/javascript" src="<?= base_url("assets/vendor/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.pt-BR.js");?>"></script-->
 <script src="<?= base_url("assets/vendor/mask-plugin/dist/jquery.mask.min.js");?>"></script>
 <script src="<?= base_url("assets/paginas/cadastro_consulta.js");?>"></script>

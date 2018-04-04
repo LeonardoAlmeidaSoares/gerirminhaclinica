@@ -16,4 +16,8 @@ if (!defined('BASEPATH'))
         	return $this->db->get_where("especializacao", array("codEspecializacao" => $codEspecializacao));
         }
 
+        public function alterar($parametros, $codigo){
+            return $this->db->where("codEspecializacao", $codigo)->update("especializacao", $parametros);
+        }
+
     }

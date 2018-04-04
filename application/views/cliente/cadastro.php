@@ -60,7 +60,7 @@
 							<div class="col-sm-3">
 								<div class="form-group">
 									<label class="control-label">Nacionalidade</label>
-									<select id="txtNacionalidade" name="txtNacionalidade" class="form-control">
+									<select id="txtNacionalidade" name="txtNacionalidade" class="select form-control">
 										<?php foreach($paises->result() as $item){?>
 											<option value="<?= $item->codPais;?>"><?= $item->nome;?></option>
 										<?php } ?>
@@ -112,7 +112,7 @@
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label class="control-label">Estado</label>
-									<select id="txtEstado" name="txtEstado" class="form-control">
+									<select id="txtEstado" name="txtEstado" class="select form-control">
 										<option value="-1" selected hidden>Selecione o Estado</option>
 										<?php foreach($estados->result() as $item){ ?>
 											<option value="<?= $item->codEstado;?>"><?= $item->nome;?></option>
@@ -124,7 +124,7 @@
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label class="control-label">Cidade</label>
-									<select id="txtCidade" name="txtCidade" class="form-control">
+									<select id="txtCidade" name="txtCidade" class="select form-control">
 										<option value="-1" selected hidden>Selecione o Estado</option>
 									</select>
 								</div>
@@ -192,7 +192,7 @@
 					
 						<div class="row">
 							<div class="col-xs-12">
-								<input type="submit" class="btn btn-success pull-right" value="Cadastrar" />
+								<input type="submit" class="btn btn-primary pull-right" value="CADASTRAR" />
 							</div>
 						</div>
 					

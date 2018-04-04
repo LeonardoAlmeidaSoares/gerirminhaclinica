@@ -84,7 +84,7 @@ function getValor($codPlano, $valores){
 						
 					<div class="row">
 						<div class="col-xs-12">
-							<input type="submit" class="btn btn-success pull-right" value="Cadastrar" />
+							<input type="submit" class="btn btn-primary pull-right" value="CADASTRAR" />
 						</div>
 					</div>
 				</form>

@@ -18,8 +18,18 @@ function getValor($codCliente, $codProcedimento){
     });
 }
 
+
+jQuery.datetimepicker.setLocale('pt-BR');
+
 $(function(){
 	
+
+	$("#txtHorario").datetimepicker({
+		
+	 	format:'d/m/Y H:i'
+	});
+	
+
 	var $codProcedimento = 0;
 	var $codCliente = 0;
 
@@ -43,4 +53,6 @@ $(function(){
 
 	});
 
+	
+	
 });

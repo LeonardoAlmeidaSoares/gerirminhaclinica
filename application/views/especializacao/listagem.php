@@ -45,7 +45,11 @@
 						<tr class="gradeX">
 							<td><?= str_pad($item->codEspecializacao, 6, "0", STR_PAD_LEFT);?></td>
 							<td><?= $item->nome;?></td>
-							<td class="center hidden-phone"></td>
+							<td class="center hidden-phone">
+								<a class="icon_action" href="<?= base_url("index.php/especializacao/edit/$item->codEspecializacao/");?>" 	title="Alterar Dados do Cliente">
+									<span class="fa fa-edit fa-2x"></span>
+								</a>
+							</td>
 						</tr>
 						<?php } ?>
 					</tbody>
@@ -53,7 +57,7 @@
 
 				<div class="pull-right">
 				<a href="<?= base_url("index.php/especializacao/novo");?>">
-					<button type="button" class="mb-xs mt-xs mr-xs btn btn-success">
+					<button type="button" class="mb-xs mt-xs mr-xs btn btn-primary">
 						<span class="fa fa-save"> &nbsp;NOVO
 					</button>
 				</a>

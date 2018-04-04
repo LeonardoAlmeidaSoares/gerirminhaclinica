@@ -73,7 +73,7 @@
 
 				<div class="pull-right">
 				<a href="<?= base_url("index.php/funcionario/novo");?>">
-					<button type="button" class="mb-xs mt-xs mr-xs btn btn-success">
+					<button type="button" class="mb-xs mt-xs mr-xs btn btn-primary">
 						<span class="fa fa-save"> &nbsp;NOVO
 					</button>
 				</a>

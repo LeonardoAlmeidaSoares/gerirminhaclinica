@@ -13,7 +13,7 @@ if (!defined('BASEPATH'))
         }
 
         public function getPlano($codPlano){
-        	return $this->db->get_where("plano", array("codPlano" => $codPlano));
+        	return $this->db->get_where("plano", array("codPlano" => $codPlano))->row(0);
         }
 
         public function setarStatusPlano($codPlano, $codEmpresa){
@@ -22,8 +22,15 @@ if (!defined('BASEPATH'))
             $dadosProc = $this->db->get_where("procedimento", array("codEmpresa" => $codEmpresa, "status>" => STATUS_SERVICO_INATIVO));
 
             if($dadosProc->num_rows() == $dadosPlan->num_rows()){
+
                 $this->db->where("codPlano", $codPlano)->update("plano", array("status" => STATUS_PLANO_ATIVO));
             }
+
+        }
+
+        public function alterar($parametros, $codigo){
+
+            return $this->db->where("codPlano", $codigo)->update("plano", $parametros);
 
         }
 

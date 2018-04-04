@@ -4,9 +4,7 @@
 	<aside id="sidebar-left" class="sidebar-left">
 	
 		<div class="sidebar-header">
-			<div class="sidebar-title">
-				Cadastros
-			</div>
+			<div class="sidebar-title"></div>
 			<div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
 				<i class="fa fa-bars" aria-label="Toggle sidebar"></i>
 			</div>
@@ -51,6 +49,20 @@
 							</a>
 						</li>
 
+						<li class="">
+							<a href="<?= base_url("index.php/ContaPagar/");?>">
+								<i class="fa fa-money" aria-hidden="true"></i>
+								<span>Contas a Pagar</span>
+							</a>
+						</li>
+
+						<li class="">
+							<a href="<?= base_url("index.php/ContaReceber/");?>">
+								<i class="fa fa-money" aria-hidden="true"></i>
+								<span>Contas a Receber</span>
+							</a>
+						</li>
+
 						<li>
 							<a href="<?= base_url("index.php/procedimento");?>">
 								<i class="fa fa-database" aria-hidden="true"></i>
@@ -71,6 +83,8 @@
 								<span>Agenda</span>
 							</a>
 						</li>
+
+
 					</ul>
 				</nav>
 			</div>

@@ -52,4 +52,9 @@ $(function(){
 
 	});
 
+	//Seto o Plugin Select2
+    $('.select').select2({
+	    width: 'resolve' // need to override the changed default
+	});
+
 });

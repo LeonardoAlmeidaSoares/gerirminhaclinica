@@ -52,7 +52,38 @@ class Especializacao extends CI_Controller {
 			$_SESSION["msg_error"] = "Houve um erro no cadastro do Especialização";
 			redirect(base_url("index.php/especializacao"));
 		}
+	}
 
+	public function edit($cod){
 
+		$parametros = array(
+			"dados" => $this->especializacao->getEspecializacao($cod)->row(0)
+		);
+
+		$this->load->view('inc/header');
+		$this->load->view('inc/barra_superior');
+		$this->load->view('inc/menu_lateral');
+		$this->load->view('especializacao/editar', $parametros);
+		//$this->load->view('inc/barra_lateral');
+		$this->load->view('inc/rodape');
+	}
+
+	public function update(){
+
+		$codigo = intval(trim(filter_input(INPUT_POST, "txtCodigo")));
+
+		$parametros = array(
+			"nome" => trim(filter_input(INPUT_POST, "txtNome")),
+			"descricao" => trim(filter_input(INPUT_POST, "txtDescricao")),
+			"codEmpresa" => $_SESSION["corporate"]->codEmpresa
+		);
+
+		if($this->especializacao->alterar($parametros, $codigo)){
+			$_SESSION["msg_ok"] = "Especialização Alterada com Sucesso";
+		}else{
+			$_SESSION["msg_error"] = "Houve um erro na alteração do Especialização";
+		}
+
+		redirect(base_url("index.php/especializacao"));
 	}
 }

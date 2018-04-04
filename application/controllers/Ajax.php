@@ -65,4 +65,17 @@ class Ajax extends CI_Controller {
 
 	}
 
+	public function alterarStatusConsulta(){
+
+		$codConsulta = intval(trim(filter_input(INPUT_POST, "codConsulta")));
+		$status = intval(trim(filter_input(INPUT_POST, "status")));
+
+		$this->db->where("codConsulta", $codConsulta)->update("consulta", array(
+			"status" => $status
+		));
+
+		return "Finalizado com sucesso";
+
+	}
+
 }

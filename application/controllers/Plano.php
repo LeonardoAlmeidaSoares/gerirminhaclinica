@@ -55,7 +55,43 @@ class Plano extends CI_Controller {
 			$_SESSION["msg_error"] = "Houve um erro no cadastro do Plano";
 			redirect(base_url("index.php/plano"));
 		}
+	}
 
+	public function edit($cod){
+
+		$parametros = array(
+			"dados" => $this->planos->getPlano($cod)
+		);
+
+		$this->load->view('inc/header');
+		$this->load->view('inc/barra_superior');
+		$this->load->view('inc/menu_lateral');
+		$this->load->view('plano/editar', $parametros);
+		//$this->load->view('inc/barra_lateral');
+		$this->load->view('inc/rodape');
+	}
+
+	public function update(){
+
+		$codigo = intval(trim(filter_input(INPUT_POST, "txtCodigo")));
+
+		$parametros = array(
+			"descricao" => trim(filter_input(INPUT_POST, "txtNome")),
+			"valor" => doubleval(trim(str_replace(",",".",filter_input(INPUT_POST, "txtValor")))),
+			"numeroDependentes" => intval(trim(filter_input(INPUT_POST, "txtNumDependentes"))),
+			"valorDependente" => intval(trim(filter_input(INPUT_POST, "txtValorDependente"))),
+			"status" => intval(trim(filter_input(INPUT_POST, "txtStatus"))),
+			"codEmpresa" => $_SESSION["corporate"]->codEmpresa
+		);
+
+		if($this->planos->alterar($parametros, $codigo)){
+			$_SESSION["msg_ok"] = "Plano Alterado com Sucesso";
+			$this->planos->setarStatusPlano($codigo, $_SESSION["corporate"]->codEmpresa);
+		}else{
+			$_SESSION["msg_error"] = "Houve um Erro ao Editar o Plano";
+		}
+
+		redirect(base_url("index.php/plano/"));
 
 	}
 }
