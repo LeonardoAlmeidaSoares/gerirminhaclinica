@@ -115,6 +115,8 @@
 		</div>
 	</div>
 </body>
+<script src="<?= base_url("assets/vendor/accounting.min.js");?>"></script>
+
 <link rel="stylesheet" type="text/css" href="<?= base_url("assets/vendor/datetimepicker/build/jquery.datetimepicker.min.css");?>">
 <script src="<?= base_url("assets/vendor/datetimepicker/build/jquery.datetimepicker.full.min.js");?>"></script>
 <!--script type="text/javascript" src="<?= base_url("assets/vendor/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.pt-BR.js");?>"></script-->

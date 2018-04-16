@@ -74,7 +74,8 @@ class Cliente extends CI_Controller {
 			"nome_mae" => trim(filter_input(INPUT_POST, "txtMae")),
 			"escolaridade" => trim(filter_input(INPUT_POST, "txtEscolaridade")),
 			"codEmpresa" => intval($_SESSION["corporate"]->codEmpresa),
-			"codCidade" => intval(trim(filter_input(INPUT_POST, "txtCidade")))
+			"codCidade" => intval(trim(filter_input(INPUT_POST, "txtCidade"))),
+			"estado_civil" => intval(trim(filter_input(INPUT_POST, "txtEstadoCivil")))
 		);
 
 		$codCliente = $this->cliente->inserir($parametrosCliente);
@@ -134,7 +135,8 @@ class Cliente extends CI_Controller {
 			"email" => trim(filter_input(INPUT_POST, "txtEmail")),
 			"escolaridade" => trim(filter_input(INPUT_POST, "txtEscolaridade")),
 			"codEmpresa" => intval($_SESSION["corporate"]->codEmpresa),
-			"codCidade" => intval(trim(filter_input(INPUT_POST, "txtCidade")))
+			"codCidade" => intval(trim(filter_input(INPUT_POST, "txtCidade"))),
+			"estado_civil" => intval(trim(filter_input(INPUT_POST, "txtEstadoCivil")))
 		);
 
 		if($this->cliente->alterar($parametrosCliente, $codigo)){

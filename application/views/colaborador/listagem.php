@@ -67,7 +67,16 @@
 							<td><?= $item->especializacao;?></td>
 							<td><?= $item->email;?></td>
 							<td><?= $item->celular;?></td>
-							<td class="center hidden-phone"></td>
+							<td class="center hidden-phone">
+								<a class="icon_action" href="<?= base_url("index.php/colaborador/edit/$item->codColaborador/");?>" 	title="Alterar Dados do Colaborador">
+									<span class="fa fa-edit fa-2x"></span>
+								</a>
+
+								<a class="icon_action" href="<?= base_url("index.php/colaborador/gerirHorarios/$item->codColaborador/");?>" 	title="Cadastrar Horários Colaborador">
+									<span class="fa fa-calendar fa-2x"></span>
+								</a>
+
+							</td>
 						</tr>
 						<?php } ?>
 					</tbody>

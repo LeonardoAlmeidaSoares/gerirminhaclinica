@@ -47,6 +47,33 @@ class Ajax extends CI_Controller {
 
 	}
 
+	public function getListaCompromissosEventosCalendario(){
+
+		session_start();
+
+		$codColaborador = intval(trim(filter_input(INPUT_POST, "codColaborador")));
+		$codEmpresa = intval(trim(filter_input(INPUT_POST, "codEmpresa")));
+
+		$this->load->Model("Model_consultas", "consulta");
+
+		$dump = $this->consulta->getConsultasDetalhado($codEmpresa, $codColaborador);
+
+		$ret = array();
+
+		foreach($dump->result() as $item){
+
+			array_push($ret, array(
+				"title" => $item->procedimento . " - " . $item->paciente,
+				"start" => $item->data,
+				"end" => date('Y-m-d H:i', strtotime($item->data. " + $item->tempo minutes"))
+			));
+		
+		}
+
+		echo json_encode($ret);
+
+	}
+
 	public function getValorProcedimento(){
 
 		$codDependente = intval(trim(filter_input(INPUT_POST, 'codDependente')));
@@ -75,6 +102,16 @@ class Ajax extends CI_Controller {
 		));
 
 		return "Finalizado com sucesso";
+
+	}
+
+	public function buscarDatasTrabalhoColaborador(){
+
+		$codColaborador = intval(trim(filter_input(INPUT_POST, "codColaborador")));
+
+		$ret = $this->db->get_where("data_consulta_colaborador", array("codColaborador" => $codColaborador));
+		
+		echo json_encode($ret->result_array());
 
 	}
 

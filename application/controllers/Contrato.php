@@ -16,6 +16,50 @@ class Contrato extends CI_Controller {
 
 	}
 
+	public function termo_adesao($codCliente){
+		$this->load->helper('file');
+
+		$this->load->Model("Model_clientes", "clientes");
+		$this->load->Model("Model_planos", "planos");
+
+		$arquivo = base_url("assets/documents/1/documento_2.txt");
+
+		$cliente = $this->clientes->getCliente($codCliente)->row(0);
+		$cidade = $this->uteis->getCidade($cliente->codCidade)->row(0);
+
+		$dadosCliente = array(
+			"nome" => $cliente->nome,
+			"profissao" => $cliente->profissao,
+			"rg" => $cliente->rg,
+			"cpf" => $cliente->cpf,
+			"nascimento" => $this->uteis->converterDataParaPtBr($cliente->nascimento),
+			"nome_mae" => $cliente->nome_mae,
+			"logradouro" => $cliente->logradouro,
+			"numero" => $cliente->numero,
+			"complemento" => $cliente->complemento,
+			"bairro" => $cliente->bairro,
+			"cep" => $cliente->cep,
+			"cidade" => $cidade->cidade,
+			"estado" => $cidade->estado,
+			"telefone1" => $cliente->telefone,
+			"telefone2" => $cliente->celular,
+			"estado_civil" => $cliente->estado_civil
+		);
+
+		$parametros = array(
+			"dadosCliente" => $dadosCliente,
+			"contrato" => $this->uteis->getFileContents($arquivo),
+			"dependentes" => $this->clientes->getDependentes($codCliente)
+		);
+
+		//$this->load->view('inc/header');
+		//$this->load->view('inc/barra_superior');
+		//$this->load->view('inc/menu_lateral');
+		$this->load->view('contrato/contrato', $parametros);
+		//$this->load->view('inc/barra_lateral');
+		//$this->load->view('inc/rodape');
+	}
+
 	public function contrato($codCliente)
 	{
 
@@ -39,7 +83,44 @@ class Contrato extends CI_Controller {
 			$this->load->view('inc/rodape');
 
 		} else {
-			echo "Exibir dados do contrato";
+
+			$this->load->helper('file');
+
+			$arquivo = base_url("assets/documents/1/documento_1.txt");
+
+			$cliente = $this->clientes->getCliente($codCliente)->row(0);
+			$cidade = $this->uteis->getCidade($cliente->codCidade)->row(0);
+
+			$dadosCliente = array(
+				"nome" => $cliente->nome,
+				"profissao" => $cliente->profissao,
+				"rg" => $cliente->rg,
+				"cpf" => $cliente->cpf,
+				"nascimento" => $this->uteis->converterDataParaPtBr($cliente->nascimento),
+				"nome_mae" => $cliente->nome_mae,
+				"logradouro" => $cliente->logradouro,
+				"numero" => $cliente->numero,
+				"complemento" => $cliente->complemento,
+				"bairro" => $cliente->bairro,
+				"cep" => $cliente->cep,
+				"cidade" => $cidade->cidade,
+				"estado" => $cidade->estado,
+				"telefone1" => $cliente->telefone,
+				"telefone2" => $cliente->celular,
+				"estado_civil" => $cliente->estado_civil
+			);
+
+			$parametros = array(
+				"dadosCliente" => $dadosCliente,
+				"contrato" => $this->uteis->getFileContents($arquivo)
+			);
+
+			//$this->load->view('inc/header');
+			//$this->load->view('inc/barra_superior');
+			//$this->load->view('inc/menu_lateral');
+			$this->load->view('contrato/contrato', $parametros);
+			//$this->load->view('inc/barra_lateral');
+			//$this->load->view('inc/rodape');
 		}
 	}
 
@@ -97,6 +178,49 @@ class Contrato extends CI_Controller {
 
 		$_SESSION["msg_ok"] = "Contrato Cadastrado com Sucesso";
 		redirect(base_url("index.php/cliente"));
+
+	}
+
+	public function getContrato($codCliente){
+
+		$this->load->Model("Model_clientes", "clientes");
+
+		$this->load->helper('file');
+
+		$arquivo = base_url("assets/documents/1/documento_1.txt");
+
+		$cliente = $this->clientes->getCliente($codCliente)->row(0);
+		$cidade = $this->uteis->getCidade($cliente->codCidade)->row(0);
+
+		$dadosCliente = array(
+			"nome" => $cliente->nome,
+			"profissao" => $cliente->profissao,
+			"rg" => $cliente->rg,
+			"cpf" => $cliente->cpf,
+			"nascimento" => $this->uteis->converterDataParaPtBr($cliente->nascimento),
+			"nome_mae" => $cliente->nome_mae,
+			"logradouro" => $cliente->logradouro,
+			"numero" => $cliente->numero,
+			"complemento" => $cliente->complemento,
+			"bairro" => $cliente->bairro,
+			"cep" => $cliente->cep,
+			"cidade" => $cidade->cidade,
+			"estado" => $cidade->estado,
+			"telefone1" => $cliente->telefone,
+			"telefone2" => $cliente->celular
+		);
+
+		$parametros = array(
+			"dadosCliente" => $dadosCliente,
+			"contrato" => $this->uteis->getFileContents($arquivo)
+		);
+
+		//$this->load->view('inc/header');
+		//$this->load->view('inc/barra_superior');
+		//$this->load->view('inc/menu_lateral');
+		$this->load->view('contrato/contrato', $parametros);
+		//$this->load->view('inc/barra_lateral');
+		//$this->load->view('inc/rodape');
 
 	}
 }

@@ -1,0 +1,64 @@
+<center><h3>TERMO DE ADESÃO À REDE CREDENCIADA DE ASSISTÊNCIA A SAÚDE DE MEDMUR ASSISTENCIAL LTDA.</h3></center>
+
+<p>De um lado MEDMUR ASSISTENCIAL LTDA, pessoa jurídica de direito privado, cadastrada no CNPJ sob o nº. 29.443.344/0001-57, com sede em Muriaé/MG, na Rua Constantino Pinto, nº 104, bairro Centro, CEP 36.880-003, neste ato devidamente representada na forma de seus atos constitutivos, simplesmente denominada CONTRATADA, e de outro __NOME_CLIENTE__, de nacionalidade __NOME_PAIS__, estado civil __ESTADO_CIVIL__, profissão __PROFISSAO__, carteira de identidade nº __IDENTIDADE__, inscrito no CPF sob o nº __CPF__, nascido em __NASCIMENTO__, filho de __NOME_MAE__, residente e domiciliado na Rua __LOGRADOURO__, nº __NUMERO__, complemento __COMPLEMENTO__, bairro __BAIRRO__, CEP __CEP__, cidade __CIDADE__, no estado de __ESTADO__, telefone residencial __TELEFONE_1__, telefone celular __TELEFONE_2__, simplesmente denominado CONTRATANTE, tem entre si como justo e contratado o que se segue:</p>
+<p>O contrato a que se refere este termo tem por objeto exclusivo o oferecimento da clínica credenciada MEDMUR LTDA. pela CONTRATADA, a qual garantirá descontos fixos ao CONTRATANTE e seus dependentes nos procedimentos descritos na tabela de cobertura de cada área de segmentação. <u><b>NÃO SE TRATA DE MODALIDADE DE PLANO DE ASSISTÊNCIA À SAÚDE</b></u>, mas de serviço de operacionalização de descontos e benefícios pela CONTRATADA aos consumidores aderentes.</p>
+
+<h2>Tipo de plano</h2>
+(   ) Contrato Individual: R$20,00 (vinte reais).<br />
+(   ) Contrato Familiar: R$25,00 (vinte e cinco reais).<br />
+(   ) Acréscimo agregado: R$5,00 (cinco reais) por pessoa agregada.<br />
+
+
+<h2>Beneficiários dependentes</h2>
+<br />
+1 – 	Nome: _________________________________________________________.<br />
+	Grau de Parentesco: ______________________________.<br />
+	RG: __________________________________.<br />
+	CPF: _________________________________.<br />
+<br /><br />
+2 – 	Nome: _________________________________________________________.<br />
+	Grau de Parentesco: ______________________________.<br />
+	RG: __________________________________.<br />
+	CPF: _________________________________.<br /><br /><br />
+
+3 – 	Nome: _________________________________________________________.<br />
+	Grau de Parentesco: ______________________________.<br />
+	RG: __________________________________.<br />
+	CPF: _________________________________.<br /><br /><br />
+
+4 – 	Nome: _________________________________________________________.<br />
+	Grau de Parentesco: ______________________________.<br />
+	RG: __________________________________.<br />
+	CPF: _________________________________.<br /><br /><br />
+
+5 – 	Nome: _________________________________________________________.<br />
+	Grau de Parentesco: ______________________________.<br />
+	RG: __________________________________.<br />
+	CPF: _________________________________.<br /><br /><br />
+
+
+<h2>Data de vencimento</h2>
+(   ) Dia 10 de cada mês.<br />
+(   ) Dia 20 de cada mês.<br />
+(   ) Último dia de cada mês.<br />
+
+<h2>Declaração</h2>
+
+<p>Pelo preenchimento do presente Termo, a pessoa física abaixo qualificada manifesta seu interesse em aderir à rede credenciada de assistência à saúde da CONTRATADA. O CONTRATANTE declara ciência de que a formalização da adesão estará condicionada à aceitação dos termos do contrato de adesão à rede credenciada e à respectiva análise da documentação, bem como assume inteira responsabilidade sobre as declarações aqui prestadas, quanto a sua veracidade e sobre o ônus que venha a causar à empresa por uso inadequado de seus direitos ou procedimentos não cobertos no contrato, mesmo que por qualquer pretexto. Declara, ainda, que conhece, por inteiro, o teor do contrato a que este se refere.</p>
+<p>Assim, firmo o presente Termo de Adesão.</p>
+<br /><br />
+Muriaé/MG, ______ de ________________ de ________.<br /><br />
+
+___________________________________________________.<br />
+CONTRATANTE<br /><br />
+
+___________________________________________________.<br />
+CONTRATADA<br /><br />
+
+___________________________________________________.<br />
+TESTEMUNHAS (1)<br /><br />
+CPF:_____________________________.<br /><br />
+
+___________________________________________________.<br />
+TESTEMUNHAS (2)<br /><br />
+CPF:_____________________________.<br />

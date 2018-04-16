@@ -102,17 +102,39 @@ function getData($dia){
 								</div>
 							</div>
 
-							<div class="col-sm-6">
+							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Nome do Pai</label>
 									<input type="text" id="txtPai" name="txtPai"  value="<?= $dados->nome_pai;?>"  class="form-control">
 								</div>
 							</div>
 
-							<div class="col-sm-6">
+							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Nome da Mãe</label>
 									<input type="text" id="txtMae" name="txtMae" value="<?= $dados->nome_mae;?>" class="form-control">
+								</div>
+							</div>
+
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label class="control-label">Estado Civil</label>
+										<select  id="txtEstadoCivil" name="txtEstadoCivil" class="select form-control">
+										<option hidden selected>ESTADO CIVIL</option>
+										<option value="<?= STATUS_ESTADO_CIVIL_SOLTEIRO ;?>" 
+											<?php if($dados->estado_civil == STATUS_ESTADO_CIVIL_SOLTEIRO) { echo "selected";} ?>>SOLTEIRO(A)</option>
+										<option value="<?= STATUS_ESTADO_CIVIL_CASADO ;?>"
+											<?php if($dados->estado_civil == STATUS_ESTADO_CIVIL_CASADO) { echo "selected";} ?>>CASADO(A)</option>
+										<option value="<?= STATUS_ESTADO_CIVIL_NOIVO ;?>"
+											<?php if($dados->estado_civil == STATUS_ESTADO_CIVIL_NOIVO) { echo "selected";} ?>>NOIVO(A)</option>
+										<option value="<?= STATUS_ESTADO_CIVIL_VIÚVO ;?>"
+											<?php if($dados->estado_civil == STATUS_ESTADO_CIVIL_VIÚVO) { echo "selected";} ?>>VIÚVO(A)</option>
+										<option value="<?= STATUS_ESTADO_CIVIL_DIVORCIADO ;?>"
+											<?php if($dados->estado_civil == STATUS_ESTADO_CIVIL_DIVORCIADO) { echo "selected";} ?>>DIVORCIADO(A)</option>
+										<option value="<?= STATUS_ESTADO_CIVIL_SEPARADO ;?>"
+											<?php if($dados->estado_civil == STATUS_ESTADO_CIVIL_SEPARADO) { echo "selected";} ?>>SEPARADO(A)</option>
+									</select>
+									</select>
 								</div>
 							</div>
 

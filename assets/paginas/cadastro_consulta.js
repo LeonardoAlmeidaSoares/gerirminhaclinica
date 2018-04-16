@@ -1,19 +1,26 @@
 
 function getValor($codCliente, $codProcedimento){
+
+	var options = {
+        symbol: "",
+        decimal: ",",
+        thousand: ".",
+        precision: 2,
+        format: "%s%v"
+    };
+
 	$.ajax({
-        url: "../../ajax/getValorProcedimento",
+        url: "../../index.php/ajax/getValorProcedimento",
         method: "POST",
         data: {
         	"codProcedimento": $codProcedimento,
         	"codDependente" : $codCliente
         }
     }).success(function (response) {
-    	console.log(response);
-
     	var $vet = JSON.parse(response);
 
-    	$("#txtValor").val($vet[0].valor);
-    	$("#txtPlano").val(vet[0].codPlano)
+    	$("#txtValor").val(accounting.formatMoney($vet[0].valor, options));
+    	$("#txtPlano").val($vet[0].codPlano)
 
     });
 }
@@ -22,7 +29,7 @@ function getValor($codCliente, $codProcedimento){
 jQuery.datetimepicker.setLocale('pt-BR');
 
 $(function(){
-	
+
 
 	$("#txtHorario").datetimepicker({
 		

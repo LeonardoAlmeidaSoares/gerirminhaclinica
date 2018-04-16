@@ -18,111 +18,12 @@
 
 					<!-- start: page -->
 					<div class="row">
-						<div class="col-md-6 col-lg-12 col-xl-12">
-							<div class="row">
 
-								<div class="col-md-6 col-xl-12">
-									<section class="panel">
-										<div class="panel-body bg-primary">
-											<div class="widget-summary">
-												<div class="widget-summary-col widget-summary-col-icon">
-													<div class="summary-icon">
-														<i class="fa fa-users"></i>
-													</div>
-												</div>
-												<div class="widget-summary-col">
-													<div class="summary">
-														<h4 class="title">Total de Clientes</h4>
-														<div class="info">
-															<strong class="amount"><?= str_pad($total_clientes, 4, "0", STR_PAD_LEFT);?></strong>
-														</div>
-													</div>
-													<div class="summary-footer">
-														<a class="text-uppercase" href="<?= base_url("index.php/cliente/");?>">(VISUALIZAR TODOS)</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</section>
-								</div>
+						<?php foreach($painel as $dash){ 
+							echo $dash;
+						} ?>
 
-								<div class="col-md-6 col-xl-12">
-										<section class="panel">
-											<div class="panel-body bg-tertiary">
-												<div class="widget-summary">
-													<div class="widget-summary-col widget-summary-col-icon">
-														<div class="summary-icon">
-															<i class="fa fa-book"></i>
-														</div>
-													</div>
-													<div class="widget-summary-col">
-														<div class="summary">
-															<h4 class="title">Atendimentos Para Hoje</h4>
-															<div class="info">
-																<strong class="amount"><?= str_pad($lista_consultas->num_rows(), 4, "0", STR_PAD_LEFT);?></strong>
-															</div>
-														</div>
-														<div class="summary-footer">
-															<a class="text-uppercase" href="<?= base_url("index.php/consulta/hoje");?>">(VISUALIZAR TODOS)</a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</section>
-									</div>
-
-									<div class="col-md-6 col-xl-12">
-										<section class="panel">
-											<div class="panel-body bg-secondary">
-												<div class="widget-summary">
-													<div class="widget-summary-col widget-summary-col-icon">
-														<div class="summary-icon">
-															<i class="fa fa-credit-card"></i>
-														</div>
-													</div>
-													<div class="widget-summary-col">
-														<div class="summary">
-															<h4 class="title">Contas Atrasadas</h4>
-															<div class="info">
-																<strong class="amount"><?= str_pad($total_contas_pagar_vencendo, 4, "0", STR_PAD_LEFT);?></strong>
-															</div>
-														</div>
-														<div class="summary-footer">
-															<a class="text-uppercase" href="<?= base_url("index.php/contaPagar/atrasadas");?>">(VISUALIZAR TODOS)</a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</section>
-									</div>
-
-									<div class="col-md-6 col-xl-12">
-										<section class="panel">
-											<div class="panel-body bg-quartenary">
-												<div class="widget-summary">
-													<div class="widget-summary-col widget-summary-col-icon">
-														<div class="summary-icon">
-															<i class="fa fa-money"></i>
-														</div>
-													</div>
-													<div class="widget-summary-col">
-														<div class="summary">
-															<h4 class="title">Contas a Receber Até Hoje</h4>
-															<div class="info">
-																<strong class="amount"><?= str_pad($total_contas_receber_vencendo, 4, "0", STR_PAD_LEFT);?></strong>
-															</div>
-														</div>
-														<div class="summary-footer">
-															<a class="text-uppercase" href="<?= base_url("index.php/contaReceber/atrasadas");?>">(VISUALIZAR TODOS)</a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</section>
-									</div>
-
-							</div>
-						</div>
+							
 						<div class="col-xs-12">
 							<section class="panel">
 								<header class="panel-heading">					
@@ -158,11 +59,135 @@
 											<?php } ?>
 										</tbody>
 									</table>
+									<div class="pull-right">
+										<a href="<?= base_url("index.php/consulta/novo");?>">
+											<button type="button" class="mb-xs mt-xs mr-xs btn btn-primary">
+												<span class="fa fa-save"> &nbsp;NOVO
+											</button>
+										</a>
+									</div>
+								</div>
+							</section>
+						</div>
+
+						<div class="col-xs-12">
+							<section class="panel">
+								<header class="panel-heading" style="min-height: 60px;">	
+										<h2 class="panel-title col-lg-8">Datas Disponíveis</h2>
+										<div class="col-lg-4">
+											<select class="select form-control" id="txtCodColaborador">
+												<option value="0" hidden="hidden" selected>SELECIONE O COLABORADOR</option>
+												<?php foreach($lista_colaboradores->result() as $item){?>
+													<option value="<?= $item->codColaborador;?>"><?= $item->nome;?></option>
+												<?php } ?>
+											</select>
+										</div>
+								</header>
+								<div class="panel-body">
+									<div class="row list_calendar" id="calendario_0">
+											<div class="col-xs-6">
+												<h3 style="margin-top: 5px;margin-bottom: 15px; margin-left: 5px;">Selecione o Dia</h3>
+												<div id="calendar0" 
+														data-plugin-datepicker 
+														data-plugin-skin="primary">
+												</div>
+											</div>
+											<div class="col-xs-6">
+												<div class="calendario" id="agenda0"></div>
+											</div>
+										</div>
+									<?php foreach($lista_colaboradores->result() as $item){?>
+										<div class="row list_calendar" id="<?= "calendario_$item->codColaborador";?>">
+											<div class="col-xs-6">
+												<h3 style="margin-top: 5px;margin-bottom: 15px; margin-left: 5px;">Selecione o Dia</h3>
+												<div id="calendar<?= $item->codColaborador;?>" class="datepicker-primary">
+												</div>
+											</div>
+											<div class="col-xs-6">
+												<div class="calendario" id="agenda<?= $item->codColaborador;?>"></div>
+											</div>
+										</div>
+									<?php } ?>
+									
 								</div>
 							</section>
 						</div>
 				</section>
 			</div>
-
+		
 		</section>
-<script src="<?= base_url("assets/paginas/dashboardAtendente.js");?>"></script>
+		<link rel="stylesheet" href="<?= base_url("assets/vendor/fullcalendar/fullcalendar.css");?>" />
+		<script src="<?= base_url("assets/vendor/fullcalendar/lib/moment.min.js");?>"></script>
+		<script src="<?= base_url("assets/vendor/fullcalendar/fullcalendar.js");?>"></script>
+		<script src='<?= base_url("assets/vendor/fullcalendar/locale/pt-br.js");?>'></script>
+
+		<link rel="stylesheet" href="<?= base_url("assets/vendor/bootstrap-datepicker/css/datepicker.css");?>" />
+		<link rel="stylesheet" href="<?= base_url("assets/vendor/bootstrap-datepicker/css/datepicker3.css");?>" />
+		<script src="<?= base_url("assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js");?>"></script>
+		<script src="<?= base_url("assets/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.pt-BR.js");?>"></script>
+
+		<script type="text/javascript">
+
+		<?php 
+			$parametrosColaboradores = array();
+			$parametrosEventos = array();
+		?>
+
+		<?php foreach($lista_compromissos->result() as $item){
+
+			if(!isset($parametrosColaboradores[$item->codColaborador])){
+				$parametrosColaboradores[$item->codColaborador] = "";
+				$parametrosEventos[$item->codColaborador] = "";
+			}
+				
+			$parametrosColaboradores[$item->codColaborador] .=  "'" . date("d/m/Y", strtotime($item->dataInicio)) . "',";
+			$evt = array(
+				"title" => "evt",
+				"start" => date("d/m/Y H:i", strtotime($item->dataInicio)),
+				"end" => date("d/m/Y", strtotime($item->dataFinal))
+			);
+			$parametrosEventos[$item->codColaborador] .=  json_encode($evt);
+			
+		 }; ?>
+
+		<?php foreach($lista_colaboradores->result() as $item){ ?>
+			$("#calendar<?= $item->codColaborador;?>").datepicker({
+
+			    weekStart: 0,
+			    clearBtn: true,
+			    language: "pt-BR",
+			    <?php if(isset($parametrosColaboradores[$item->codColaborador  i  ])){ ?>
+			    beforeShowDay: function(date){
+			    	return([<?= $ pop78h UOOOO[$item->codColaborador];?>].includes(moment(date, "DD/MM/YYYY").format("DD/MM/YYYY")));
+			    }
+			    <?php } ?>
+			}).on("changeDate", function(e){
+				console.log(moment(e.date, "DD/MM/"));
+				$("#agenda<?= $item->codColaborador;?>").fullCalendar('gotoDate', e.date);
+				//$("#agenda<?= $item->codColaborador;?>").gotoDat = e;
+			});
+
+			$("#agenda<?= $item->codColaborador;?>").fullCalendar({
+				defaultView: 'agendaDay',
+				allDaySlot: false,
+				events: {
+			    	url: '<?= base_url("index.php/ajax/getListaCompromissosEventosCalendario/");?>',
+			    	type: 'POST',
+			    	data: {
+			        	codColaborador: <?= $item->codColaborador;?>,
+			        	codEmpresa: <?= $_SESSION["corporate"]->codEmpresa;?>,
+			      	},
+			      	error: function() {
+			        	alert('Houve um erro ao trazer as consultas marcadas');
+			      	},
+			    },
+				noEventsMessage : 'Nenhuma Consulta Cadastrada',
+			});
+
+
+		<?php } ?>
+
+		$(".datepicker-inline").addClass("datepicker-primary");
+		</script>
+
+		<script src="<?= base_url("assets/paginas/dashboardAtendente.js");?>"></script>

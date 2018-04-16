@@ -68,4 +68,53 @@ class Colaborador extends CI_Controller {
 
 
 	}
+
+	public function cadastroFaixaHorario(){
+		
+		$horarioIntegral = trim(filter_input(INPUT_POST, "txtHorario"));
+
+		$horarios = explode(" - ", $horarioIntegral);
+
+		$begin = new DateTime($this->uteis->aprontaHorario($horarios[0]));
+		$end = new DateTime($this->uteis->aprontaHorario($horarios[1]));
+
+		$horaInicio = $begin->format('H:i');
+		$horaFim = $end->format('H:i');
+
+		$parametros = array(
+			"codEmpresa" => $_SESSION["corporate"]->codEmpresa,
+			"codColaborador" => intval(trim(filter_input(INPUT_POST, "txtColaborador")))
+		);
+		
+		$interval = DateInterval::createFromDateString('1 day');
+		$period = new DatePeriod($begin, $interval, $end);
+
+		foreach ($period as $dt) {
+		    $parametros["dataInicio"] = $dt->format("Y-m-d") . " " . $horaInicio;
+		    $parametros["dataFinal"] = $dt->format("Y-m-d") . " " . $horaFim;
+
+		    //var_dump($parametros);
+		    $this->db->insert("data_consulta_colaborador", $parametros);
+		}
+
+		$_SESSION["msg_ok"] = "Cadastro Realizado com Sucesso";
+		redirect(base_url("index.php/colaborador/gerirHorarios/" . $parametros["codColaborador"]));
+	}
+
+	public function gerirHorarios($codColaborador){
+
+		$parametros = array(
+			"codColaborador" => $codColaborador,
+			"dados" => $this->colaborador->getColaborador($codColaborador)->row(0),
+			"lista" => $this->colaborador->getListaHorariosDisponiveis($_SESSION["corporate"]->codEmpresa, $codColaborador)
+		);
+
+		$this->load->view('inc/header');
+		$this->load->view('inc/barra_superior');
+		$this->load->view('inc/menu_lateral');
+		$this->load->view('colaborador/cadastroHorario', $parametros);
+		//$this->load->view('inc/barra_lateral');
+		$this->load->view('inc/rodape');
+
+	}
 }

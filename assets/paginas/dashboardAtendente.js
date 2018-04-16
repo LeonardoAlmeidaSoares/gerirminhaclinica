@@ -1,4 +1,18 @@
 $(function(){
+
+	listaDiasColaboradorAtende = null;
+
+	$(".list_calendar").hide();
+	$("#calendario_0").show();
+
+	$("#txtCodColaborador").on("change", function(){
+		var codigo = parseInt($("#txtCodColaborador :selected").val());
+    	$(".list_calendar").hide("slow");
+    	if(codigo > 0){
+	    	$("#calendario_"+ codigo).show("slow");
+    	}
+	});
+
 	$(".btn-start").on("click", function(evt){
 
 		evt.preventDefault();
@@ -14,6 +28,7 @@ $(function(){
 	        	"status" : 1002
 	        }
 	    }).success(function (response) {
+	    	$this.parent().parent().css("background-color", "#F0E68C");
 	    	swal('Parábens','Paciente entrou para a consulta','success');
 	    });
 

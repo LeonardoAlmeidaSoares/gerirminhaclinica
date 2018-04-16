@@ -92,17 +92,32 @@
 								</div>
 							</div>
 
-							<div class="col-sm-6">
+							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Nome do Pai</label>
 									<input type="text" id="txtPai" name="txtPai"  class="form-control">
 								</div>
 							</div>
 
-							<div class="col-sm-6">
+							<div class="col-sm-4">
 								<div class="form-group">
 									<label class="control-label">Nome da Mãe</label>
 									<input type="text" id="txtMae" name="txtMae" class="form-control">
+								</div>
+							</div>
+
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label class="control-label">Estado Civil</label>
+									<select  id="txtEstadoCivil" name="txtEstadoCivil" class="select form-control">
+										<option hidden selected>ESTADO CIVIL</option>
+										<option value="<?= STATUS_ESTADO_CIVIL_SOLTEIRO ;?>">SOLTEIRO(A)</option>
+										<option value="<?= STATUS_ESTADO_CIVIL_CASADO ;?>">CASADO(A)</option>
+										<option value="<?= STATUS_ESTADO_CIVIL_NOIVO ;?>">NOIVO(A)</option>
+										<option value="<?= STATUS_ESTADO_CIVIL_VIÚVO ;?>">VIÚVO(A)</option>
+										<option value="<?= STATUS_ESTADO_CIVIL_DIVORCIADO ;?>">DIVORCIADO(A)</option>
+										<option value="<?= STATUS_ESTADO_CIVIL_SEPARADO ;?>">SEPARADO(A)</option>
+									</select>
 								</div>
 							</div>
 
