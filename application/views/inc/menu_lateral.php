@@ -17,7 +17,7 @@
 						<li class="nav-active">
 							<a href="<?= base_url();?>">
 								<i class="fa fa-home" aria-hidden="true"></i>
-								<span>Dashboard</span>
+								<span>Principal</span>
 							</a>
 						</li>
 

@@ -69,6 +69,8 @@
 					</tbody>
 				</table>
 
+				<a href="<?= base_url("index.php/contaReceber/");?>" class="btn btn-default pull-left">VOLTAR</a>
+
 			</div>
 
 			

@@ -104,10 +104,12 @@
 
 		<link rel="stylesheet" href="<?= base_url("assets/vendor/fullcalendar/fullcalendar.css");?>" />
 
-		<script src="<?= base_url("assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js");?>"></script>
-		<script src="<?= base_url("assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js");?>"></script>
 		<script src="<?= base_url("assets/vendor/fullcalendar/lib/moment.min.js");?>"></script>
-		<script src="<?= base_url("assets/vendor/fullcalendar/fullcalendar.js");?>"></script>
-		<script src='<?= base_url("assets/vendor/fullcalendar/lang/pt-br.js");?>'></script>
-		<script src="<?= base_url("assets/paginas/calendario.js");?>"></script>
+
+		<link rel="stylesheet" href="<?= base_url("assets/vendor/bootstrap-datepicker/css/datepicker.css");?>" />
+		<link rel="stylesheet" href="<?= base_url("assets/vendor/bootstrap-datepicker/css/datepicker3.css");?>" />
+		<script src="<?= base_url("assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js");?>"></script>
+		<script src="<?= base_url("assets/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.pt-BR.js");?>"></script>
+
+		<script src="<?= base_url("assets/paginas/calendario2.js");?>"></script>
 

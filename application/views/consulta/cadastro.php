@@ -103,6 +103,7 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<input type="hidden" name="txtPlano" id="txtPlano">
+								<a href="<?= base_url("index.php/consulta/");?>" class="btn btn-default pull-left">VOLTAR</a>
 								<input type="submit" class="btn btn-primary pull-right" value="CADASTRAR" />
 							</div>
 						</div>

@@ -1,6 +1,6 @@
 				<section role="main" class="content-body">
 					<header class="page-header">
-						<h2>Dashboard</h2>
+						<h2>Principal</h2>
 					
 						<div class="right-wrapper pull-right">
 							<ol class="breadcrumbs">
@@ -9,7 +9,7 @@
 										<i class="fa fa-home"></i>
 									</a>
 								</li>
-								<li><span>Dashboard</span></li>
+								<li><span>Principal</span></li>
 							</ol>
 					
 							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -128,6 +128,47 @@
 
 		<script type="text/javascript">
 
+			function setColor(){
+				$(".day").each(function(){
+
+					if($(this).hasClass("disabled")){
+
+						$(this).css("background-color", "rgba(255,0,0,0.1)");
+						$(this).css("color", "#F00");
+
+					} else {
+						
+						$(this).hover(function(){
+							$(this).css("color", "white");
+						}, function(){
+							$(this).css("color", "#000");
+		    			});
+						
+					}
+					
+				});
+			}
+
+			function setCalendar($element, $data, $colaborador){
+
+				$.ajax({
+					method: "POST",
+				  	url: "<?= base_url("index.php/ajax/buscarDatasTrabalhoColaborador");?>",
+				  	data: { 
+				  		codColaborador: $colaborador, 
+				  		data: $data 
+				  	}
+				}).done(function( msg ) {
+
+			    	$vet = JSON.parse(msg);
+
+			    	$element.fullCalendar('gotoDate', $data);
+					$element.fullCalendar('option', 'maxTime', moment($vet[0].dataFinal , "HH:mm").format("HH:mm"));
+					$element.fullCalendar('option', 'minTime', moment($vet[0].dataInicio, "hh:mm").format("hh:mm"));
+			  	});
+
+			}
+
 		<?php 
 			$parametrosColaboradores = array();
 			$parametrosEventos = array();
@@ -156,15 +197,27 @@
 			    weekStart: 0,
 			    clearBtn: true,
 			    language: "pt-BR",
-			    <?php if(isset($parametrosColaboradores[$item->codColaborador  i  ])){ ?>
+			    <?php if(isset($parametrosColaboradores[$item->codColaborador])){ ?>
 			    beforeShowDay: function(date){
-			    	return([<?= $ pop78h UOOOO[$item->codColaborador];?>].includes(moment(date, "DD/MM/YYYY").format("DD/MM/YYYY")));
+
+			    	var obj = {
+			    		"enabled" : [<?= $parametrosColaboradores[$item->codColaborador];?>].includes(moment(date, "DD/MM/YYYY").format("DD/MM/YYYY"))
+			    	}
+
+			    	obj.class = (obj.enabled) ? "": "active";
+
+			    	return obj;
 			    }
 			    <?php } ?>
 			}).on("changeDate", function(e){
-				console.log(moment(e.date, "DD/MM/"));
-				$("#agenda<?= $item->codColaborador;?>").fullCalendar('gotoDate', e.date);
-				//$("#agenda<?= $item->codColaborador;?>").gotoDat = e;
+				setCalendar($("#agenda<?= $item->codColaborador;?>"), e.format("yyyy-mm-dd").toString(), <?= $item->codColaborador;?>);
+				setColor();
+			}).on("changeMonth", function(e){
+				setCalendar($("#agenda<?= $item->codColaborador;?>"), e.format("yyyy-mm-dd").toString(), <?= $item->codColaborador;?>);
+				setColor();
+			}).on("changeYear", function(e){
+				setCalendar($("#agenda<?= $item->codColaborador;?>"), e.format("yyyy-mm-dd").toString(), <?= $item->codColaborador;?>);
+				setColor();
 			});
 
 			$("#agenda<?= $item->codColaborador;?>").fullCalendar({
@@ -188,6 +241,9 @@
 		<?php } ?>
 
 		$(".datepicker-inline").addClass("datepicker-primary");
+
+		setColor();
+
 		</script>
 
 		<script src="<?= base_url("assets/paginas/dashboardAtendente.js");?>"></script>

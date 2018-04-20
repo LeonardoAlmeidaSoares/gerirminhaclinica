@@ -75,7 +75,8 @@
 						<?php } ?>
 					</tbody>
 				</table>
-
+				
+				<a href="<?= base_url("index.php/consulta/");?>" class="btn btn-default pull-left">VOLTAR</a>
 
 			</div>
 

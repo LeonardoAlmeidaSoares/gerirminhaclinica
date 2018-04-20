@@ -69,7 +69,11 @@
 					</tbody>
 				</table>
 
+				<a href="<?= base_url("index.php/contaPagar/");?>" class="btn btn-default pull-left">VOLTAR</a>
+
 			</div>
+
+
 
 			
 		</section>

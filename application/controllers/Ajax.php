@@ -109,7 +109,13 @@ class Ajax extends CI_Controller {
 
 		$codColaborador = intval(trim(filter_input(INPUT_POST, "codColaborador")));
 
-		$ret = $this->db->get_where("data_consulta_colaborador", array("codColaborador" => $codColaborador));
+		$parametros = array("codColaborador" => $codColaborador);
+
+		if(isset($_POST["data"])){
+			$parametros["DATE(dataInicio)"] = trim(filter_input(INPUT_POST, "data"));
+		}
+
+		$ret = $this->db->get_where("data_consulta_colaborador", $parametros);
 		
 		echo json_encode($ret->result_array());
 
